@@ -111,7 +111,7 @@ class _LoginScreenState extends State<LoginScreen>
               ),
 
               Image.asset(
-                  "assets/images/uberexec.png",
+                  "assets/images/driver_logo.png",
                 width: 220,
               ),
 
