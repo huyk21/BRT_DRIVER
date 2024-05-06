@@ -109,7 +109,7 @@ class _TripsPageState extends State<TripsPage>
           GestureDetector(
             onTap: ()
             {
-              Navigator.push(context, MaterialPageRoute(builder: (c)=> TripsHistoryPage()));
+              Navigator.push(context, MaterialPageRoute(builder: (c)=> const TripsHistoryPage()));
             },
             child: Center(
               child: Container(

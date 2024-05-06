@@ -4,7 +4,6 @@ import 'package:drivers_app/methods/map_theme_methods.dart';
 import 'package:drivers_app/models/trip_details.dart';
 import 'package:drivers_app/widgets/payment_dialog.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_polyline_points/flutter_polyline_points.dart';
@@ -34,9 +33,9 @@ class _NewTripPageState extends State<NewTripPage>
   double googleMapPaddingFromBottom = 0;
   List<LatLng> coordinatesPolylineLatLngList = [];
   PolylinePoints polylinePoints = PolylinePoints();
-  Set<Marker> markersSet = Set<Marker>();
-  Set<Circle> circlesSet = Set<Circle>();
-  Set<Polyline> polyLinesSet = Set<Polyline>();
+  Set<Marker> markersSet = <Marker>{};
+  Set<Circle> circlesSet = <Circle>{};
+  Set<Polyline> polyLinesSet = <Polyline>{};
   BitmapDescriptor? carMarkerIcon;
   bool directionRequested = false;
   String statusOfTrip = "accepted";
@@ -49,7 +48,7 @@ class _NewTripPageState extends State<NewTripPage>
   {
     if(carMarkerIcon == null)
     {
-      ImageConfiguration configuration = createLocalImageConfiguration(context, size: Size(2, 2));
+      ImageConfiguration configuration = createLocalImageConfiguration(context, size: const Size(2, 2));
 
       BitmapDescriptor.fromAssetImage(configuration, "assets/images/tracking.png")
           .then((valueIcon)
@@ -189,7 +188,7 @@ class _NewTripPageState extends State<NewTripPage>
 
   getLiveLocationUpdatesOfDriver()
   {
-    LatLng lastPositionLatLng = LatLng(0, 0);
+    LatLng lastPositionLatLng = const LatLng(0, 0);
 
     positionStreamNewTripPage = Geolocator.getPositionStream().listen((Position positionDriver)
     {
@@ -346,7 +345,7 @@ class _NewTripPageState extends State<NewTripPage>
       "driverName": driverName,
       "driverPhone": driverPhone,
       "driverPhoto": driverPhoto,
-      "carDetails": carColor + " - " + carModel + " - " + carNumber,
+      "carDetails": "$carColor - $carModel - $carNumber",
     };
 
     Map<String, dynamic> driverCurrentLocation =
@@ -444,7 +443,7 @@ class _NewTripPageState extends State<NewTripPage>
                     //trip duration
                     Center(
                       child: Text(
-                        durationText + " - " + distanceText,
+                        "$durationText - $distanceText",
                         style: const TextStyle(
                           color: Colors.green,
                           fontSize: 15,
