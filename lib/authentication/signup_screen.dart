@@ -30,6 +30,8 @@ class _SignUpScreenState extends State<SignUpScreen>
   TextEditingController vehicleModelTextEditingController = TextEditingController();
   TextEditingController vehicleColorTextEditingController = TextEditingController();
   TextEditingController vehicleNumberTextEditingController = TextEditingController();
+  String? selectedVehicleType = 'Car';  // Default value or loaded from user settings
+
   CommonMethods cMethods = CommonMethods();
   XFile? imageFile;
   String urlOfUploadedImage = "";
@@ -127,6 +129,7 @@ class _SignUpScreenState extends State<SignUpScreen>
 
     Map driverCarInfo =
     {
+      "vehicle_type": selectedVehicleType,
       "carColor": vehicleColorTextEditingController.text.trim(),
       "carModel": vehicleModelTextEditingController.text.trim(),
       "carNumber": vehicleNumberTextEditingController.text.trim(),
@@ -284,6 +287,36 @@ class _SignUpScreenState extends State<SignUpScreen>
                         fontSize: 15,
                       ),
                     ),
+                    const SizedBox(height: 32,),
+
+                    DropdownButtonFormField<String>(
+                      value: selectedVehicleType,  // Variable to hold the current selection
+                      decoration: const InputDecoration(
+                        labelText: "Select Your Vehicle Type",
+                        labelStyle: TextStyle(
+                          fontSize: 14,
+                        ),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(5.0)),
+                        ),
+                      ),
+                      items: <String>['Car', 'Bike'].map<DropdownMenuItem<String>>((String value) {
+                        return DropdownMenuItem<String>(
+                          value: value,
+                          child: Text(value),
+                        );
+                      }).toList(),
+                      onChanged: (String? newValue) {
+                        setState(() {
+                          selectedVehicleType = newValue;  // Update the state with the new selection
+                        });
+                      },
+                      style: const TextStyle(
+                        color: Colors.grey,
+                        fontSize: 15,
+                      ),
+                    ),
+
 
                     const SizedBox(height: 32,),
 
@@ -291,7 +324,7 @@ class _SignUpScreenState extends State<SignUpScreen>
                       controller: vehicleModelTextEditingController,
                       keyboardType: TextInputType.text,
                       decoration: const InputDecoration(
-                        labelText: "your Car Model",
+                        labelText: "your Car/Bike Model",
                         labelStyle: TextStyle(
                           fontSize: 14,
                         ),
@@ -308,7 +341,7 @@ class _SignUpScreenState extends State<SignUpScreen>
                       controller: vehicleColorTextEditingController,
                       keyboardType: TextInputType.text,
                       decoration: const InputDecoration(
-                        labelText: "your Car Color",
+                        labelText: "your Car/Bike Color",
                         labelStyle: TextStyle(
                           fontSize: 14,
                         ),
@@ -325,7 +358,7 @@ class _SignUpScreenState extends State<SignUpScreen>
                       controller: vehicleNumberTextEditingController,
                       keyboardType: TextInputType.text,
                       decoration: const InputDecoration(
-                        labelText: "your Car Number",
+                        labelText: "your Car/Bike Number",
                         labelStyle: TextStyle(
                           fontSize: 14,
                         ),
