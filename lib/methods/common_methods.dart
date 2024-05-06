@@ -71,7 +71,7 @@ class CommonMethods
   }
 
   static Future<DirectionDetails?> getDirectionDetailsFromAPI(LatLng source, LatLng destination) async {
-    String urlDirectionsAPI = "https://maps.googleapis.com/maps/api/directions/json?destination=${destination.latitude},${destination.longitude}&origin=${source.latitude},${source.longitude}&mode=driving&key=$googleMapKey";
+    String urlDirectionsAPI = "https://maps.googleapis.com/maps/api/directions/json?destination=${destination.latitude},${destination.longitude}&origin=${source.latitude},${source.longitude}&mode=motorcycle&key=$googleMapKey";
 
     var responseFromDirectionsAPI = await sendRequestToAPI(urlDirectionsAPI);
 
