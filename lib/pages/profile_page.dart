@@ -1,10 +1,7 @@
 import 'package:drivers_app/authentication/login_screen.dart';
 import 'package:drivers_app/global/global_var.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_geofire/flutter_geofire.dart';
-import 'package:restart_app/restart_app.dart';
 
 class ProfilePage extends StatefulWidget {
   const ProfilePage({super.key});
@@ -26,7 +23,7 @@ class _ProfilePageState extends State<ProfilePage>
       nameTextEditingController.text = driverName;
       phoneTextEditingController.text = driverPhone;
       emailTextEditingController.text = FirebaseAuth.instance.currentUser!.email.toString();
-      carTextEditingController.text = carNumber + " - " + carColor + " - " + carModel;
+      carTextEditingController.text = "$carNumber - $carColor - $carModel";
     });
   }
 
@@ -176,7 +173,7 @@ class _ProfilePageState extends State<ProfilePage>
                 onPressed: ()
                 {
                   FirebaseAuth.instance.signOut();
-                  Navigator.push(context, MaterialPageRoute(builder: (c)=> LoginScreen()));
+                  Navigator.push(context, MaterialPageRoute(builder: (c)=> const LoginScreen()));
                 },
                 style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.pink,

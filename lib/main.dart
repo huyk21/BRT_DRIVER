@@ -1,5 +1,4 @@
 import 'package:drivers_app/pages/dashboard.dart';
-import 'package:drivers_app/pages/home_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -53,7 +52,7 @@ class MyApp extends StatelessWidget
       theme: ThemeData.dark().copyWith(
         scaffoldBackgroundColor: Colors.black,
       ),
-      home: FirebaseAuth.instance.currentUser == null ? LoginScreen() : Dashboard(),
+      home: FirebaseAuth.instance.currentUser == null ? const LoginScreen() : const Dashboard(),
     );
   }
 }
