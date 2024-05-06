@@ -87,7 +87,7 @@ class _PaymentDialogState extends State<PaymentDialog>
 
                 cMethods.turnOnLocationUpdatesForHomePage();
 
-                Restart.restartApp();
+                //Restart.restartApp();
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.green,
