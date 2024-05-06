@@ -111,7 +111,7 @@ class _LoginScreenState extends State<LoginScreen>
               ),
 
               Image.asset(
-                  "assets/images/driver_logo.png",
+                  "assets/images/driver_logo.jpg",
                 width: 220,
               ),
 
