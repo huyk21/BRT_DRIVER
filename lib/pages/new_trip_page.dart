@@ -5,6 +5,7 @@ import 'package:drivers_app/models/trip_details.dart';
 import 'package:drivers_app/widgets/payment_dialog.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_polyline_points/flutter_polyline_points.dart';
 import 'package:geolocator/geolocator.dart';
@@ -75,7 +76,9 @@ class _NewTripPageState extends State<NewTripPage>
 
     PolylinePoints pointsPolyline = PolylinePoints();
     if(tripDetailsInfo == null){
-      print("tripDetailsInfo is null");
+      if (kDebugMode) {
+        print("tripDetailsInfo is null");
+      }
 
     }
     List<PointLatLng> latLngPoints = pointsPolyline.decodePolyline(tripDetailsInfo!.encodedPoints!);
