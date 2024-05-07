@@ -23,7 +23,7 @@ class _ProfilePageState extends State<ProfilePage>
       nameTextEditingController.text = driverName;
       phoneTextEditingController.text = driverPhone;
       emailTextEditingController.text = FirebaseAuth.instance.currentUser!.email.toString();
-      carTextEditingController.text = "$carNumber - $carColor - $carModel";
+      carTextEditingController.text = "$carNumber - $carColor  $carModel";
     });
   }
 
@@ -38,6 +38,7 @@ class _ProfilePageState extends State<ProfilePage>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.indigoAccent,
       body: Center(
         child: SingleChildScrollView(
           child: Column(
@@ -48,6 +49,7 @@ class _ProfilePageState extends State<ProfilePage>
               Container(
                 width: 180,
                 height: 180,
+                margin: const EdgeInsets.symmetric(vertical: 25.0),
                 decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     color: Colors.grey,
@@ -58,10 +60,6 @@ class _ProfilePageState extends State<ProfilePage>
                         ),
                     )
                 ),
-              ),
-
-              const SizedBox(
-                height: 16,
               ),
 
               //driver name
@@ -165,7 +163,7 @@ class _ProfilePageState extends State<ProfilePage>
               ),
 
               const SizedBox(
-                height: 12,
+                height: 50,
               ),
 
               //logout btn

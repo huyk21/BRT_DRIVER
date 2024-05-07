@@ -331,7 +331,7 @@ class _NewTripPageState extends State<NewTripPage>
 
         double newTotalEarnings = previousTotalEarnings + fareAmountForTrip;
 
-        driverEarningsRef.set(newTotalEarnings);
+        driverEarningsRef.set(double.parse(newTotalEarnings.toStringAsFixed(2)));
       }
       else
       {
