@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import 'package:drivers_app/methods/map_theme_methods.dart';
 import 'package:drivers_app/pushNotification/push_notification_system.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
@@ -27,7 +26,6 @@ class _HomePageState extends State<HomePage>
   String titleToShow = "GO ONLINE NOW";
   bool isDriverAvailable = false;
   DatabaseReference? newTripRequestReference;
-  MapThemeMethods mapThemeMethods = MapThemeMethods();
 
 
   getCurrentLiveLocationOfDriver() async
@@ -114,6 +112,7 @@ class _HomePageState extends State<HomePage>
       carColor = (snap.snapshot.value as Map)["car_details"]["carColor"];
       carModel = (snap.snapshot.value as Map)["car_details"]["carModel"];
       carNumber = (snap.snapshot.value as Map)["car_details"]["carNumber"];
+      vehicleType = (snap.snapshot.value as Map)["car_details"]["vehicle_type"];
     });
 
     initializePushNotificationSystem();
@@ -142,7 +141,6 @@ class _HomePageState extends State<HomePage>
             onMapCreated: (GoogleMapController mapController)
             {
               controllerGoogleMap = mapController;
-              mapThemeMethods.updateMapTheme(controllerGoogleMap!);
 
               googleMapCompleterController.complete(controllerGoogleMap);
 

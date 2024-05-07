@@ -19,7 +19,7 @@ class CommonMethods
     if(connectionResult != ConnectivityResult.mobile && connectionResult != ConnectivityResult.wifi)
     {
       if(!context.mounted) return;
-      displaySnackBar("your Internet is not Available. Check your connection. Try Again.", context);
+      displaySnackBar("Your Internet is not Available. Check your connection. Try Again.", context);
     }
   }
 
