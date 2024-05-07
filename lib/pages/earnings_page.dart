@@ -41,14 +41,16 @@ class _EarningsPageState extends State<EarningsPage>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.indigoAccent,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
 
           Center(
             child: Container(
-              color: Colors.indigo,
+              color: Colors.indigoAccent,
               width: 300,
+              margin: const EdgeInsets.symmetric(vertical: 15.0),
               child: Padding(
                 padding: const EdgeInsets.all(18.0),
                 child: Column(
