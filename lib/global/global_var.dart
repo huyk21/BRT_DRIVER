@@ -29,3 +29,4 @@ String carColor = "";
 String carModel = "";
 String carNumber = "";
 String vehicleType = "";
+String vehicleBasePrice = "";
