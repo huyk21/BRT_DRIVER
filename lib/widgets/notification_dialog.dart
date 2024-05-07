@@ -114,6 +114,10 @@ class _NotificationDialogState extends State<NotificationDialog>
   @override
   Widget build(BuildContext context)
   {
+    String imagePath = "assets/images/uberexec.png";
+    if (vehicleType == "Bike") {
+      imagePath = "assets/images/bike.png";
+    }
     return Dialog(
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(12),
@@ -133,7 +137,7 @@ class _NotificationDialogState extends State<NotificationDialog>
             const SizedBox(height: 30.0,),
 
             Image.asset(
-              "assets/images/uberexec.png",
+              imagePath,
               width: 140,
             ),
 

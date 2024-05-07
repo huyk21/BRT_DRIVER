@@ -28,3 +28,4 @@ String driverPhoto = "";
 String carColor = "";
 String carModel = "";
 String carNumber = "";
+String vehicleType = "";
