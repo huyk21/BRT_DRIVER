@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:drivers_app/global/global_var.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -79,34 +78,29 @@ class CommonMethods
       return null;
     }
 
-    DirectionDetails detailsModel = DirectionDetails();
-
+    DirectionDetails detailsModel = DirectionDetails.getSubClass(vehicleType);
     var firstRoute = responseFromDirectionsAPI["routes"][0];
     var firstLeg = firstRoute["legs"][0];
-
     detailsModel.distanceTextString = firstLeg["distance"]["text"];
     detailsModel.distanceValueDigits = firstLeg["distance"]["value"];
-
     detailsModel.durationTextString = firstLeg["duration"]["text"];
     detailsModel.durationValueDigits = firstLeg["duration"]["value"];
-
     detailsModel.encodedPoints = firstRoute["overview_polyline"]["points"];
-
+    detailsModel.baseFareAmount = double.parse(vehicleBasePrice);
     return detailsModel;
   }
 
+  // calculateFareAmount(DirectionDetails directionDetails)
+  // {
+  //   double distancePerKmAmount = 0.4;
+  //   double durationPerMinuteAmount = 0.3;
+  //   double baseFareAmount = 2;
 
-  calculateFareAmount(DirectionDetails directionDetails)
-  {
-    double distancePerKmAmount = 0.4;
-    double durationPerMinuteAmount = 0.3;
-    double baseFareAmount = 2;
+  //   double totalDistanceTravelFareAmount = (directionDetails.distanceValueDigits! / 1000) * distancePerKmAmount;
+  //   double totalDurationSpendFareAmount = (directionDetails.durationValueDigits! / 60) * durationPerMinuteAmount;
 
-    double totalDistanceTravelFareAmount = (directionDetails.distanceValueDigits! / 1000) * distancePerKmAmount;
-    double totalDurationSpendFareAmount = (directionDetails.durationValueDigits! / 60) * durationPerMinuteAmount;
+  //   double overAllTotalFareAmount = baseFareAmount + totalDistanceTravelFareAmount + totalDurationSpendFareAmount;
 
-    double overAllTotalFareAmount = baseFareAmount + totalDistanceTravelFareAmount + totalDurationSpendFareAmount;
-
-    return overAllTotalFareAmount.toStringAsFixed(1);
-  }
+  //   return overAllTotalFareAmount.toStringAsFixed(1);
+  // }
 }
