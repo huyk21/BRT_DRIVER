@@ -59,15 +59,16 @@ class _TripsPageState extends State<TripsPage>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.indigoAccent,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-
           //Total Trips
           Center(
             child: Container(
               color: Colors.indigo,
               width: 300,
+              margin: const EdgeInsets.fromLTRB(25.0, 50.0, 25.0, 50.0),
               child: Padding(
                 padding: const EdgeInsets.all(18.0),
                 child: Column(
@@ -76,13 +77,14 @@ class _TripsPageState extends State<TripsPage>
                     Image.asset("assets/images/totaltrips.png", width: 120,),
 
                     const SizedBox(
-                      height: 10,
+                      height: 25,
                     ),
 
                     const Text(
-                      "Total Trips:",
+                      "Total Trips Completed:",
                       style: TextStyle(
                         color: Colors.white,
+                        fontSize: 20
                       ),
                     ),
 
@@ -102,7 +104,7 @@ class _TripsPageState extends State<TripsPage>
           ),
 
           const SizedBox(
-            height: 20,
+            height: 25,
           ),
 
           //check trip history
@@ -114,6 +116,7 @@ class _TripsPageState extends State<TripsPage>
             child: Center(
               child: Container(
                 color: Colors.indigo,
+                margin: const EdgeInsets.fromLTRB(25.0, 50.0, 25.0, 50.0),
                 width: 300,
                 child: Padding(
                   padding: const EdgeInsets.all(18.0),
@@ -123,13 +126,14 @@ class _TripsPageState extends State<TripsPage>
                       Image.asset("assets/images/tripscompleted.png", width: 150,),
 
                       const SizedBox(
-                        height: 10,
+                        height: 15,
                       ),
 
                       const Text(
                         "Check Trips History",
                         style: TextStyle(
                           color: Colors.white,
+                          fontSize: 20
                         ),
                       ),
 
