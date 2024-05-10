@@ -281,7 +281,7 @@ class _NewTripPageState extends State<NewTripPage>
 
     var directionDetailsEndTripInfo = await CommonMethods.getDirectionDetailsFromAPI(
         widget.newTripDetailsInfo!.pickUpLatLng!, //pickup
-        driverCurrentLocationLatLng, //destination
+        widget.newTripDetailsInfo!.dropOffLatLng! // dropoff
     );
 
     Navigator.pop(context);
